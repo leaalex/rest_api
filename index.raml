@@ -1,0 +1,58 @@
+#%RAML 1.0
+title: EDU Platform
+version: v3
+baseUri: https://api.edu.online
+
+/users:
+    get:
+        description: Получеин списка пользователей с пагинацией
+        queryParameters:
+            couter: number
+            page: number
+        responses:
+            200:
+                body:
+                    application/json:
+                        example: |
+                            {
+                                "data": [
+                                    ...
+                                    {
+                                        "user_id": "id34234",
+                                        "name": 'alex'
+                                    },
+                                    ...
+                                ],
+                                "status": 200
+                            }
+    /create:
+        post: 
+            description:  Создание пользователя
+            body:
+                application/json:
+                    example: |
+                        {
+                            username: 'name'
+                            password: dfgdfgd
+                        }
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: |
+                                { "message": "The song has been properly entered" }
+                403:
+                    body:
+                        application/json:
+                            example: |
+                                { "message": " Пользователь с таким именем существует" }
+    /{id}:
+        get:
+        /profile:
+            get:
+        /courses:
+            get:
+        /certificate:
+            get:
+
+
